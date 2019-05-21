@@ -4,8 +4,6 @@
 var express = require("express");
 var path = require("path");
 
-require('./app/routing/apiRoutes.js')(app);
-require('./app/routing/htmlRoutes')(app);
 
 // Setup Express App
 var app = express();
@@ -13,6 +11,12 @@ var PORT = 3000;
 
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
+
+require('./app/routing/apiRoutes.js');
+require('./app/routing/htmlRoutes');
+
+
+
 
 // Starts the server to begin listening
 // =============================================================
