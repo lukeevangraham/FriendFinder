@@ -1,0 +1,25 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukeevangraham/FriendFinder.git"
+  },
+  "author": "Luke Graham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukeevangraham/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/lukeevangraham/FriendFinder#readme"
+}
