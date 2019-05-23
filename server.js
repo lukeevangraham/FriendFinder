@@ -12,8 +12,8 @@ var PORT = 3000;
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
-require('./app/routing/apiRoutes.js');
-require('./app/routing/htmlRoutes');
+require('./app/routing/apiRoutes.js')(app);
+require('./app/routing/htmlRoutes')(app);
 
 
 
