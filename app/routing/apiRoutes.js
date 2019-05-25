@@ -27,7 +27,7 @@ module.exports = function (app) {
         
         // COMEPARE DIFFERENCE BETWEEN CURRENT USER'S SCORES AGAINST THOSE FROM OTHERS
         for (let storedUserScores = 0; storedUserScores < friends.length; storedUserScores++) {
-            var indexScores = friends[storedUserScores].scores;
+            // var indexScores = friends[storedUserScores].scores;
             // console.log(indexScores);
             var totaldifference = 0;
             for (let question = 0; question < currentUserScores.length; question++) {
@@ -35,8 +35,28 @@ module.exports = function (app) {
                 console.log("difference: " + totaldifference);
             }
             differenceFromNewFriend.push(totaldifference)
-            console.log(friends[storedUserScores].name + differenceFromNewFriend);
+            console.log(differenceFromNewFriend);
         }
+
+    var bestMatchValue
+    var bestMatchId
+
+if (friends.length > 0) {
+    
+    
+    // calculate friend with closest score to new friend
+    for (let i = 0; i < differenceFromNewFriend.length; i++) {
+        if (differenceFromNewFriend[i] < differenceFromNewFriend[i+1] && differenceFromNewFriend[i] < bestMatchValue) {
+            bestMatch = differenceFromNewFriend[i];
+            bestMatchId = i;
+        }
+        
+    }
+    
+    
+    
+    console.log("your best match is" + friends.name);
+}
         
         friends.push(newfriend);
 
