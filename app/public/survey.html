@@ -8,6 +8,16 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script
+  src="http://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
 
     <title>FriendFinder | Survey</title>
@@ -48,7 +58,7 @@
                 <option value="3">5 (Strongly Agree)</option>
             </select>
             <br><br>
-<!-- 
+
 
             <label for="sel1">2. Saving money is important to me.</label><br>
             <select class="custom-select" style="width:180px;" id="q2">
@@ -155,51 +165,54 @@
                 <option value="3">3</option>
                 <option value="3">4</option>
                 <option value="3">5 (Strongly Agree)</option>
-            </select> -->
+            </select>
         </form>
         <br><br>
         <button type="submit" class="btn btn-primary" id="submit">Submit</button>
         <br><br>
 
         <script type="text/javascript">
+        $(document).ready(function() {
+
             // Question: What does this code do?
             $("#submit").on("click", function (event) {
                 event.preventDefault();
-                console.log("clicked")
                 var newFriend = {
                     name: $("#InputName").val().trim(),
                     photo: $("#InputPhoto").val().trim(),
                     scores: [
-                        $("q1").val(),
-                        $("q2").val(),
-                        $("q3").val(),
-                        $("q4").val(),
-                        $("q5").val(),
-                        $("q6").val(),
-                        $("q7").val(),
-                        $("q8").val(),
-                        $("q9").val(),
-                        $("q10").val(),
+                        $("#q1").val(),
+                        $("#q2").val(),
+                        $("#q3").val(),
+                        $("#q4").val(),
+                        $("#q5").val(),
+                        $("#q6").val(),
+                        $("#q7").val(),
+                        $("#q8").val(),
+                        $("#q9").val(),
+                        $("#q10").val(),
                     ]
                 };
-
+                console.log("html page says: " + newFriend)
+                
                 // Question: What does this code do??
                 $.post("/api/friends", newFriend)
-                    .then(function (data) {
-                        console.log("survey.html", data);
-                        alert("Adding friend...");
-                    });
+                .then(function (data) {
+                    console.log("survey.html", data);
+                    alert("Adding friend...");
+                });
             });
-        </script>
+        })
+            </script>
+            
+            
+            </div>
 
 
-    </div>
 
 
 
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -207,7 +220,7 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
 </body>
 
 </html>

@@ -1,3 +1,5 @@
 var friends = [];
 
-exports.friends = friends;
+module.exports = {
+    friends: friends
+}
