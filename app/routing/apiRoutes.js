@@ -2,6 +2,8 @@ var path = require("path");
 
 var friends = require('../data/friends.js').friends;
 
+var bestMatch
+
 module.exports = function (app) {
 
 
@@ -70,10 +72,15 @@ if (friends.length > 0) {
     var minimmumDifferenceIndex = indexOfMin(differenceFromNewFriend);
 
     console.log("Your best match is: "+ friends[minimmumDifferenceIndex].name);
+    
+    bestMatch = friends[minimmumDifferenceIndex].name
+    
+    console.log("Your best match is: "+ bestMatch);
 }
         
         friends.push(newfriend);
 
-        res.json(newfriend);
+        // res.json(newfriend);
+        res.json(bestMatch);
     });
 }
