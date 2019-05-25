@@ -54,7 +54,7 @@ function indexOfMin(arr) {
                 totaldifference += Math.abs(currentUserScores[question] - friends[storedUserScores].scores[question]);
             }
             differenceFromNewFriend.push(totaldifference)
-            console.log(differenceFromNewFriend);
+            // console.log(differenceFromNewFriend);
         }
 
 if (friends.length > 0) {
