@@ -7,23 +7,23 @@ var bestMatch
 module.exports = function (app) {
 
 
-function indexOfMin(arr) {
-    if (arr.length === 0) {
-        return -1;
-    }
-
-    var min = arr[0];
-    var minIndex = 0;
-
-    for (var i = 1; i < arr.length; i++) {
-        if (arr[i] < min) {
-            minIndex = i;
-            min = arr[i];
+    function indexOfMin(arr) {
+        if (arr.length === 0) {
+            return -1;
         }
-    }
 
-    return minIndex;
-}
+        var min = arr[0];
+        var minIndex = 0;
+
+        for (var i = 1; i < arr.length; i++) {
+            if (arr[i] < min) {
+                minIndex = i;
+                min = arr[i];
+            }
+        }
+
+        return minIndex;
+    }
 
 
 
@@ -31,22 +31,22 @@ function indexOfMin(arr) {
     // =============================================================
 
     // Basic route that sends the user first to the AJAX Page
-    app.get("/api/friends", function (req, res) {
+    app.get("/api/friends", function(req, res) {
         return res.json(friends)
     });
 
-    app.post("/api/friends", function (req, res) {
+    app.post("/api/friends", function(req, res) {
         var newfriend = req.body;
 
         // newfriend.routeName = newfriend.name.replace(/\s+/g, "").toLowerCase;
 
         console.log(newfriend);
 
-        
+
         // CONVERT EACH USER'S RESULTS INTO A SIMPLE ARRAY OF NUMBERS
         const currentUserScores = newfriend.scores;
         const differenceFromNewFriend = [];
-        
+
         // COMEPARE DIFFERENCE BETWEEN CURRENT USER'S SCORES AGAINST THOSE FROM OTHERS
         for (let storedUserScores = 0; storedUserScores < friends.length; storedUserScores++) {
             // var indexScores = friends[storedUserScores].scores;
@@ -59,25 +59,25 @@ function indexOfMin(arr) {
             // console.log(differenceFromNewFriend);
         }
 
-if (friends.length > 0) {
-    
-    // calculate friend with closest score to new friend
-    // for (let i = 0; i < differenceFromNewFriend.length; i++) {
-    //     if (differenceFromNewFriend[i] < differenceFromNewFriend[i+1]) {
-    //         bestMatch = differenceFromNewFriend[i];
-    //         bestMatchId = i;
-    //     }
-    // }
+        if (friends.length > 0) {
 
-    var minimmumDifferenceIndex = indexOfMin(differenceFromNewFriend);
+            // calculate friend with closest score to new friend
+            // for (let i = 0; i < differenceFromNewFriend.length; i++) {
+            //     if (differenceFromNewFriend[i] < differenceFromNewFriend[i+1]) {
+            //         bestMatch = differenceFromNewFriend[i];
+            //         bestMatchId = i;
+            //     }
+            // }
 
-    console.log("Your best match is: "+ friends[minimmumDifferenceIndex].name);
-    
-    bestMatch = friends[minimmumDifferenceIndex]
-    
-    console.log("Your best match is: "+ bestMatch);
-}
-        
+            var minimmumDifferenceIndex = indexOfMin(differenceFromNewFriend);
+
+            console.log("Your best match is: " + friends[minimmumDifferenceIndex].name);
+
+            bestMatch = friends[minimmumDifferenceIndex]
+
+            console.log("Your best match is: " + bestMatch);
+        }
+
         friends.push(newfriend);
 
         // res.json(newfriend);
