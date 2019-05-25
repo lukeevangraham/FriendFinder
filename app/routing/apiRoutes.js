@@ -73,7 +73,7 @@ if (friends.length > 0) {
 
     console.log("Your best match is: "+ friends[minimmumDifferenceIndex].name);
     
-    bestMatch = friends[minimmumDifferenceIndex].name
+    bestMatch = friends[minimmumDifferenceIndex]
     
     console.log("Your best match is: "+ bestMatch);
 }

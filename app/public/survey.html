@@ -219,13 +219,13 @@
                     console.log("html page says: " + newFriend)
 
                     // Question: What does this code do??
-                    $.post("/api/friends", newFriend, function(result) {
+                    $.post("/api/friends", newFriend, function(data) {
 
-                        // console.log(result);
+                        console.log(data);
 
                         // Grab the result from the AJAX post so the best match's name and photo display
-                        $("#match-name").text(result.name);
-                        $("#match-img").attr("src", result.photo);
+                        $("#match-name").text(data.name);
+                        $("#match-img").attr("src", data.photo);
 
                         // Show the modal with the best match
                         $("#results-modal").modal("toggle");
