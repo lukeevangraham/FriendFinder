@@ -5,6 +5,26 @@ var friends = require('../data/friends.js').friends;
 module.exports = function (app) {
 
 
+function indexOfMin(arr) {
+    if (arr.length === 0) {
+        return -1;
+    }
+
+    var min = arr[0];
+    var minIndex = 0;
+
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i] < min) {
+            minIndex = i;
+            min = arr[i];
+        }
+    }
+
+    return minIndex;
+}
+
+
+
     // Routes
     // =============================================================
 
@@ -38,24 +58,29 @@ module.exports = function (app) {
             console.log(differenceFromNewFriend);
         }
 
-    var bestMatchValue
-    var bestMatchId
+    var bestMatchValue = 1000;
+    let bestMatchId
 
 if (friends.length > 0) {
     
-    
     // calculate friend with closest score to new friend
     for (let i = 0; i < differenceFromNewFriend.length; i++) {
-        if (differenceFromNewFriend[i] < differenceFromNewFriend[i+1] && differenceFromNewFriend[i] < bestMatchValue) {
+        if (differenceFromNewFriend[i] < differenceFromNewFriend[i+1]) {
             bestMatch = differenceFromNewFriend[i];
             bestMatchId = i;
         }
         
     }
+
+    var minimmumDifferenceIndex = indexOfMin(differenceFromNewFriend);
+
+    console.log("Your best match is: "+ friends[minimmumDifferenceIndex].name);
+
+    // console.log(bestMatchId);
+    // console.log(friends[0].name)
     
     
-    
-    console.log("your best match is" + friends.name);
+    // console.log("your best match is: " + friends[parseInt(bestMatchId)].name);
 }
         
         friends.push(newfriend);
