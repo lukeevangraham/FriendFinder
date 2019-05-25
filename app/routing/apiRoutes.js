@@ -52,35 +52,24 @@ function indexOfMin(arr) {
             var totaldifference = 0;
             for (let question = 0; question < currentUserScores.length; question++) {
                 totaldifference += Math.abs(currentUserScores[question] - friends[storedUserScores].scores[question]);
-                console.log("difference: " + totaldifference);
             }
             differenceFromNewFriend.push(totaldifference)
             console.log(differenceFromNewFriend);
         }
 
-    var bestMatchValue = 1000;
-    let bestMatchId
-
 if (friends.length > 0) {
     
     // calculate friend with closest score to new friend
-    for (let i = 0; i < differenceFromNewFriend.length; i++) {
-        if (differenceFromNewFriend[i] < differenceFromNewFriend[i+1]) {
-            bestMatch = differenceFromNewFriend[i];
-            bestMatchId = i;
-        }
-        
-    }
+    // for (let i = 0; i < differenceFromNewFriend.length; i++) {
+    //     if (differenceFromNewFriend[i] < differenceFromNewFriend[i+1]) {
+    //         bestMatch = differenceFromNewFriend[i];
+    //         bestMatchId = i;
+    //     }
+    // }
 
     var minimmumDifferenceIndex = indexOfMin(differenceFromNewFriend);
 
     console.log("Your best match is: "+ friends[minimmumDifferenceIndex].name);
-
-    // console.log(bestMatchId);
-    // console.log(friends[0].name)
-    
-    
-    // console.log("your best match is: " + friends[parseInt(bestMatchId)].name);
 }
         
         friends.push(newfriend);
