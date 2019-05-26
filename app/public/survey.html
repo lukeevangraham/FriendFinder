@@ -23,7 +23,7 @@
 
 <body>
     <div class="container">
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid p-2 rounded">
             <div class="container">
                 <h1 class="display-4 text-center">FriendFinder</h1>
                 <p class="lead text-center">To find that special someone</p>
@@ -36,6 +36,7 @@
 
         <form method="POST">
             <div class="form-group">
+                <h2>About You</h2>
                 <label for="InputName">Name (Required)</label>
                 <input type="text" class="form-control" id="InputName" placeholder="Enter name">
             </div>
@@ -168,6 +169,16 @@
         <br><br>
         <button type="submit" class="btn btn-primary" id="submit">Submit</button>
         <br><br>
+
+        <div class="footer">
+                <div class="container">
+                    <p>
+                        <a href="/api/friends">API Friends List</a>
+                         | 
+                        <a href="https://github.com/lukeevangraham/FriendFinder">GitHub Repo</a>
+                    </p>
+                </div>
+            </div>
 
 
 
