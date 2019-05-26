@@ -195,9 +195,8 @@
         </div>
 
         <script type="text/javascript">
-            // $(document).ready(function () {
 
-            // Question: What does this code do?
+            // Collecting input and posting to api
             $("#submit").on("click", function (event) {
                 event.preventDefault();
                 var newFriend = {
@@ -220,10 +219,6 @@
 
                 // Question: What does this code do??
                 $.post("/api/friends", newFriend, function(data) {
-                    // $.post("/api/friends", newFriend)
-                        // .then(function (data) {
-
-                    console.log(data);
 
                     // Grab the result from the AJAX post so the best match's name and photo display
                     $("#match-name").text(data.name);
@@ -233,9 +228,6 @@
                     $("#results-modal").modal("toggle");
                 });
 
-                    // .then(function (data) {
-                    //     console.log("survey.html", data);
-                    //     alert("Adding friend...");
                 });
             // });
             // })
