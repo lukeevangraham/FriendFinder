@@ -1,6 +1,6 @@
 # FriendFinder
 
-# Overview
+## Overview
 
 Check out the deployed version at:  https://lgraham-friendfinder.herokuapp.com/
 
